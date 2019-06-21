@@ -8,8 +8,29 @@
 </head>
 <body>
 
-  <h1>Hi</h1>
-  <p>Hi</p>
+  <h1 id = "h_one">Welcome to Hi Hi</h1>
+  <p>Hi!</p>
+  <script>
+  var createEl = function(text, type){
+            var El = document.createElement(type);
+            El.innerHTML = text;
+            return El;
+        };
+var addClass = function(className, classer){
+            classer.className += ' ' + className;
+        }
+        var setClass = function(className, classer){
+            classer.className = className;
+        }
+     var addBackground = function(element, color){
+            element.style.backgroundColor = color;
+        };
+    var click_one = function(){
+      addBackground(document.getElementById("h_one"), blue);
+    }
+    h_one.addEventListener("click", click_one);      
+
+  </script>
   <a href="index.html">Home</a>
 </body>
 </html>
