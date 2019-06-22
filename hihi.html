@@ -10,7 +10,7 @@
 </head>
 <body>
   <p>Things that are framed red(css: "border: 10px ridge red") are buttons.</p> 
-  <div class = "circle"><p>o</p></div>
+  <div class = "circle" id = "O"><p>O</p></div>
     <h1 id = "h_one" class = "button">Welcome to Hi Hi</h1>
   
   <p>Hi</p>
@@ -29,9 +29,12 @@ var addClass = function(className, classer){
      var addBackground = function(element, color){
             element.style.backgroundColor = color;
         };
+    var reload = function(){
+      addBackground(document.getElementById("h_one"), "#ffffff");}
     var click_one = function(){
       addBackground(document.getElementById("h_one"), "#25b244");}
-    h_one.addEventListener("click", click_one);      
+    h_one.addEventListener("click", click_one);
+    O.addEventListener("click", reload);
 
   </script>
   <a href="index.html">Home</a>
