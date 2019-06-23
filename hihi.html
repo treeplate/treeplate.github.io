@@ -48,7 +48,7 @@ var addClass = function(className, classer){
     }
     var curMessages = [[], []];
     var message = function(){
-      if (curMessages != userMessages){
+      if (curMessages == userMessages){
         console.log("IT WORKS");
       }
       requestAnimationFrame(message);
