@@ -18,6 +18,7 @@
     <button id="clr" type="button">CLEAR</button>
   </form>
   <p>Hi</p>
+  <div id = "chat"></div>
   <script>
   var button = document.getElementById("btn");
     var buttwo = document.getElementById("clr");
@@ -47,6 +48,10 @@ var addClass = function(className, classer){
     var click_one = function(){
       addBackground(document.getElementById("h_one"), "#25b244");
     }
+    function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
     var shouldUpdate = function(current){
       if (userMessages[0].length == current[0].length){
             var continueq = true;
@@ -72,14 +77,22 @@ var addClass = function(className, classer){
     var curMessages = [[], []];
     var message = function(){
       if (shouldUpdate(curMessages)){
-        console.log("IT WORKS");
+        for (var i in userMessages[1]){
+          var div = document.getElementById("chat");
+          clearBox("chat");
+          document.div.append(createEl(userMessages[0][i], h2));
+          document.div.append(createEl(userMessages[1][i], p));
+          curMessages = [[], []]
+          curMessages[0].push(userMessages[0][i]);
+          curMessages[1].push(userMessages[1][i]);
+        }
       }
       requestAnimationFrame(message);
     }
     h_one.addEventListener("click", click_one);
     O.addEventListener("click", reload);
     button.addEventListener("click", send);
-    buttwo.addEventListener("click", function(){userMessages = [[], []]; localStorage.clear();});
+    //buttwo.addEventListener("click", function(){/*userMessages = [[], []];*/localStorage.clear();});
     message();
   </script>
   <a href="index.html">Home</a>
