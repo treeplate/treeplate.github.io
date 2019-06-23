@@ -36,19 +36,42 @@ var addClass = function(className, classer){
             element.style.backgroundColor = color;
         };
     var userMessages = [[], []];
-    messagesSent = 0;
+    var messagesSent = 0;
     var send = function(){
     localStorage.setItem(messagesSent, document.getElementById("txtd").value);
     userMessages[0].push("all", document.getElementById("txtd").value);
+    messagesSent += 1;
     }
     var reload = function(){
       addBackground(document.getElementById("h_one"), "#ffffff");}
     var click_one = function(){
       addBackground(document.getElementById("h_one"), "#25b244");
     }
+    var shouldUpdate = function(current){
+      if (userMessages[0].length == current[0].length){
+            var continueq = true;
+            for(var i in userMessages[0]){
+              if (current[0][i] != userMessages[0][i]){
+                return false;
+                continueq = false;
+              }
+            }
+            if (continueq){
+              for(var i in userMessages[1]){
+                if (current[1][i] != userMessages[1][i]){
+                  return false;
+                  continueq = false;
+                }
+              }
+            }
+            if (continueq){return true;}
+      } else {
+        return false;
+      }
+    }
     var curMessages = [[], []];
     var message = function(){
-      if (curMessages == userMessages){
+      if (shouldUpdate(curMessages)){
         console.log("IT WORKS");
       }
       requestAnimationFrame(message);
