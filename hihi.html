@@ -15,10 +15,12 @@
   <form id = "text">
     <input id = "txtd" type="text" name="text">
     <button id="btn" type="button">SEND</button>
+    <button id="clr" type="button">CLEAR</button>
   </form>
   <p>Hi</p>
   <script>
   var button = document.getElementById("btn");
+    var buttwo = document.getElementById("clr");
   var createEl = function(text, type){
             var El = document.createElement(type);
             El.innerHTML = text;
@@ -53,6 +55,7 @@ var addClass = function(className, classer){
     h_one.addEventListener("click", click_one);
     O.addEventListener("click", reload);
     button.addEventListener("click", send);
+    buttwo.addEventListener("click", function(){userMessages = [[], []];});
   </script>
   <a href="index.html">Home</a>
 </body>
