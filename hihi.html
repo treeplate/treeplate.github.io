@@ -79,7 +79,7 @@ var addClass = function(className, classer){
     h_one.addEventListener("click", click_one);
     O.addEventListener("click", reload);
     button.addEventListener("click", send);
-    buttwo.addEventListener("click", function(){userMessages = [[], []];});
+    buttwo.addEventListener("click", function(){userMessages = [[], []]; localStorage.clear();});
     message();
   </script>
   <a href="index.html">Home</a>
