@@ -94,8 +94,8 @@ var addClass = function(className, classer){
         for (var i = 0;i < userMessages[1].length; i++){
           console.log("HI");
           
-          div.append(createEl(userMessages[0][i], h2));
-          div.append(createEl(userMessages[1][i], p));
+          div.append(createEl(userMessages[0][i], "h2"));
+          div.append(createEl(userMessages[1][i], "p"));
           
           curMessages[0].push(userMessages[0][i]);
           curMessages[1].push(userMessages[1][i]);
