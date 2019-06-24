@@ -86,7 +86,7 @@ var addClass = function(className, classer){
       var div = document.getElementById("chat");
       console.log(curMessages);
       console.log(userMessages);
-      if (shouldUpdate(curMessages)){
+      if (!shouldUpdate(curMessages)){
         console.log("Updating...")
         clearBox("chat");
         curMessages = [[], []];
