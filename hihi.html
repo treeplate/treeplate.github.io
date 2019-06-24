@@ -81,6 +81,8 @@ var addClass = function(className, classer){
         userMessages[1].push(localStorage.getItem(i));
       }
       var div = document.getElementById("chat");
+      console.log(curMessages);
+      console.log(userMessages);
       if (shouldUpdate(curMessages)){
         console.log("Updating...")
         clearBox("chat");
