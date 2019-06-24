@@ -40,7 +40,6 @@ var addClass = function(className, classer){
     var messagesSent = 0;
     var send = function(){
     localStorage.setItem(messagesSent, document.getElementById("txtd").value);
-    userMessages[0].push("all", document.getElementById("txtd").value);
     messagesSent += 1;
     }
     var reload = function(){
@@ -77,6 +76,10 @@ var addClass = function(className, classer){
     var curMessages = [[], []];
     var message = function(){
       userMessages = [[], []];
+      for(i = 0; i < localStorage.length; i++){
+        userMessages[0].push("all");
+        userMessages[1].push(localStorage.getItem(i));
+      }
       if (shouldUpdate(curMessages)){
         clearBox("chat");
         curMessages = [[], []];
