@@ -37,7 +37,7 @@ var addClass = function(className, classer){
             element.style.backgroundColor = color;
         };
     var userMessages = [[], []];
-    var messagesSent = 0;
+    var messagesSent = localStorage.length;
     var send = function(){
     localStorage.setItem(messagesSent, document.getElementById("txtd").value);
     messagesSent += 1;
@@ -102,7 +102,7 @@ var addClass = function(className, classer){
     h_one.addEventListener("click", click_one);
     O.addEventListener("click", reload);
     button.addEventListener("click", send);
-    //buttwo.addEventListener("click", function(){/*userMessages = [[], []];*/localStorage.clear();});
+    buttwo.addEventListener("click", function(){/*userMessages = [[], []];*/localStorage.clear();});
     message();
   </script>
   <a href="index.html">Home</a>
