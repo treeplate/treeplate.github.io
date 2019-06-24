@@ -76,13 +76,16 @@ var addClass = function(className, classer){
     }
     var curMessages = [[], []];
     var message = function(){
+      userMessages = [[], []];
       if (shouldUpdate(curMessages)){
+        clearBox("chat");
+        curMessages = [[], []];
         for (var i in userMessages[1]){
           var div = document.getElementById("chat");
-          clearBox("chat");
+          
           document.div.append(createEl(userMessages[0][i], h2));
           document.div.append(createEl(userMessages[1][i], p));
-          curMessages = [[], []]
+          
           curMessages[0].push(userMessages[0][i]);
           curMessages[1].push(userMessages[1][i]);
         }
