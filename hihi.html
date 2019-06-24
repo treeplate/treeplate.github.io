@@ -80,11 +80,12 @@ var addClass = function(className, classer){
         userMessages[0].push("all");
         userMessages[1].push(localStorage.getItem(i));
       }
+      var div = document.getElementById("chat");
       if (shouldUpdate(curMessages)){
         console.log("Updating...")
         clearBox("chat");
         curMessages = [[], []];
-         var div = document.getElementById("chat");
+         
         for (var i in userMessages[1]){
          
           
