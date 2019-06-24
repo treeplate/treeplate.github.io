@@ -81,6 +81,7 @@ var addClass = function(className, classer){
         userMessages[1].push(localStorage.getItem(i));
       }
       if (shouldUpdate(curMessages)){
+        console.log("Updating...")
         clearBox("chat");
         curMessages = [[], []];
         for (var i in userMessages[1]){
@@ -93,6 +94,7 @@ var addClass = function(className, classer){
           curMessages[1].push(userMessages[1][i]);
         }
       }
+      console.log("Updated. " + div.children);
       requestAnimationFrame(message);
     }
     h_one.addEventListener("click", click_one);
