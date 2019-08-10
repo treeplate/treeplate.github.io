@@ -24,15 +24,66 @@ https://github.com/Team-Code/KA_Offline -->
         frameRate(30);
         
         // ProgramCodeGoesHere
-        fill(255, 255, 0);
-        ellipse(200, 200, 200, 200);
-        noFill();
-        stroke(0, 0, 0);
-        strokeWeight(2);
-        arc(200, 200, 150, 100, 0, PI);
-        fill(255, 0, 0);
-        ellipse(250, 200, 10, 10);
-        ellipse(153, 200, 10, 10);
+        var Button = function(config) {
+    this.x = config.x||200;
+    this.y = config.y||200;
+    this.width = config.width||10;
+    this.height = config.height||10;
+    this.label = config.label || "HI!";
+    this.onClick = config.onClick || function() {};
+    this.color = config.color || color(255, 0, 0);
+};
+Button.prototype.draw = function() {
+    fill(this.color);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+        //println(this.label + " has been pushed.");
+    }
+};
+var drawList = [];
+var b1;
+var clicks = 0;
+var click = function() {
+    clicks++;
+};
+//var b2 = new Button({x: 10, width:239, height:30, label: "Oh good. You pressed me.", onClick: function(){drawList = [b1];}});
+var b1 = new Button({x: 10, width:239, height:30, label: "PRESS ME!", onClick: function(){//drawList = [b2];
+click();
+
+}});
+b1.draw();
+var drawList = [b1];
+draw = function() {
+    background(255, 0, 255);
+    fill(255, 255, 255);
+    text("clicks: " + clicks, 30, 30);
+    for(var i = 0; i<drawList.length; i++){
+        drawList[i].draw();
+        if (b1.isMouseInside()){
+            imageMode(CENTER);
+            image(getImage("space/plus"), mouseX, mouseY, 69, 66);
+        }
+    }
+}; 
+mouseClicked = function() {
+    for(var i = 0; i<drawList.length; i++){
+        drawList[i].handleMouseClick();
+        
+    }
+};
     }};
 
     // Get the canvas that Processing-js will use
