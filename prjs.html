@@ -72,10 +72,10 @@ draw = function() {
     text("clicks: " + clicks, 30, 30);
     for(var i = 0; i<drawList.length; i++){
         drawList[i].draw();
-        if (b1.isMouseInside()){
-            imageMode(CENTER);
-            image(getImage("space/plus"), mouseX, mouseY, 69, 66);
-        }
+        //if (b1.isMouseInside()){
+            //imageMode(CENTER);
+            //image(getImage("space/plus"), mouseX, mouseY, 69, 66);
+        //}
     }
 }; 
 mouseClicked = function() {
