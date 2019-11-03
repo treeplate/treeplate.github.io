@@ -21,9 +21,7 @@
   <script>
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
-    if(username !== null && password !== null){
-      login(false);
-    }
+    
     var login = function(resetLogin){
       if(resetLogin){
         username = document.getElementById("username").value;
@@ -44,6 +42,9 @@
       }
       
     };
+    if(username !== null && password !== null){
+      login(false);
+    }
   </script>
 </body>
 </html>
