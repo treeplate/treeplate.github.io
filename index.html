@@ -7,11 +7,15 @@
   </style>
 </head>
 <body>
+  <button id="button" onclick="onclicked()"></button>
   <div hidden id = "bluebox">
 <h1 id = "welcome">Welcome!</h1>
       </div>
   <script>
-    document.getElementById("bluebox").hidden = false;
+    var onclicked = function(){
+      document.getElementById("bluebox").hidden = false;
+      document.getElementById("button").hidden = true;
+    };
   </script>
 </body>
 </html>
