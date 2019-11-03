@@ -8,12 +8,16 @@
   </style>
 </head>
 <body>
-  <p>There is no login page yet. I am sorry. There is <span class="show" hidden>not even</span><span class="hide">only</span> a <button class="hide" onclick="login()">login</button> button.<p>
+  <p>There is no login page yet. I am sorry. There is <span class="show" hidden>not even</span><span class="hide">only</span> a <button class="hide" onclick="login()">login</button> button<span class>and a <input type="text" class="hide" title="username" id="username" required=true></span>.</p>
   <div class="show" hidden id = "bluebox">
 <h1 id = "welcome">Welcome!</h1>
+    
   </div>
   <script>
+    var username;
     var login = function(){
+      username = document.getElementById("username").value;
+      document.getElementById("welcome").innerHTML = "Hi "+username;
       /*document.getElementById("bluebox").hidden = false;
       document.getElementById("button").hidden = true;
       document.getElementById("only").hidden = true;
@@ -22,13 +26,14 @@
       var x = document.getElementsByClassName("hide");
       var i;
       for (i = 0; i < x.length; i++) {
-        x[i].style.backgroundColor = "red";
+        x[i].hidden = true;
       }
       var x = document.getElementsByClassName("show");
       var i;
       for (i = 0; i < x.length; i++) {
         x[i].hidden = false;
       }
+      
     };
   </script>
 </body>
