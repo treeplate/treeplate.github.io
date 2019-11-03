@@ -12,17 +12,25 @@
   Login page<br>
   Username:<input type="text" class="hide" title="username" id="username"><br>
   Password:<input type="password" class="hide" title="password" id="password">
-  <button class="hide" onclick="login()">Submit</button>
+  <button class="hide" onclick="login(true)">Submit</button>
   </p>
   <div class="show bluebox" hidden>
 <h1 id = "welcome" class="black"></h1>
     
   </div>
   <script>
-    var username;
-    var login = function(){
-      username = document.getElementById("username").value;
-      password = document.getElementById("password").value;
+    var username = localStorage.getItem("username");
+    var password = localStorage.getItem("password");
+    if(username !== null && password !== null){
+      login(false);
+    }
+    var login = function(resetLogin){
+      if(resetLogin){
+        username = document.getElementById("username").value;
+        localStorage.setItem("username", username);
+        password = document.getElementById("password").value;
+        localStorage.setItem("password", password);
+      }
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
       var i;
