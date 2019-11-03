@@ -8,17 +8,27 @@
   </style>
 </head>
 <body>
-  <p>There is no login page yet. I am sorry. There is <span id="notEven" hidden>not even</span><span id="only">only</span> a <button id="button" onclick="onclicked()">login</button> button.<p>
-  <div hidden id = "bluebox">
+  <p>There is no login page yet. I am sorry. There is <span class="show" hidden>not even</span><span class="hide">only</span> a <button class="hide" onclick="login()">login</button> button.<p>
+  <div class="show" hidden id = "bluebox">
 <h1 id = "welcome">Welcome!</h1>
-      </div>
+  </div>
   <script>
-    var onclicked = function(){
-      document.getElementById("bluebox").hidden = false;
+    var login = function(){
+      /*document.getElementById("bluebox").hidden = false;
       document.getElementById("button").hidden = true;
       document.getElementById("only").hidden = true;
       document.getElementById("notEven").hidden = false;
-      
+      */
+      var x = document.getElementsByClassName("hide");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].style.backgroundColor = "red";
+      }
+      var x = document.getElementsByClassName("show");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].hidden = false;
+      }
     };
   </script>
 </body>
