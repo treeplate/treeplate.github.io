@@ -14,14 +14,26 @@
   Password:<input type="password" class="hide" title="password" id="password">
   <button class="hide" onclick="login(true)">Submit</button>
   </p>
-  <div class="show bluebox" hidden>
-<h1 id = "welcome" class="black"></h1>
+  <div class="show bluebox black" hidden>
+<h1 id = "welcome"></h1>
+<button onclick="logout()">Log out</button>
     
   </div>
   <script>
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
-    
+    var logout = function(){
+      var x = document.getElementsByClassName("show");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].hidden = true;
+      }
+      var x = document.getElementsByClassName("hide");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].hidden = false;
+      }
+    };
     var login = function(resetLogin){
       if(resetLogin){
         username = document.getElementById("username").value;
