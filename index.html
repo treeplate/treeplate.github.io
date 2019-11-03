@@ -7,7 +7,7 @@
   </style>
 </head>
 <body>
-  <p>There is no login page yet. I am sorry. There is only a <button id="button" onclick="onclicked()">login</button> button.<p>
+  <p>There is no login page yet. I am sorry. There is <p id="notEven" hidden>not even</p><p id="only">only</p> a <button id="button" onclick="onclicked()">login</button> button.<p>
   <div hidden id = "bluebox">
 <h1 id = "welcome">Welcome!</h1>
       </div>
@@ -15,6 +15,9 @@
     var onclicked = function(){
       document.getElementById("bluebox").hidden = false;
       document.getElementById("button").hidden = true;
+      document.getElementById("only").hidden = true;
+      document.getElementById("notEven").hidden = false;
+      
     };
   </script>
 </body>
