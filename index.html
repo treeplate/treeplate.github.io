@@ -16,7 +16,7 @@
   </p>
   <div class="show bluebox black" hidden>
 <h1 id = "welcome"></h1>
-    <button id = "request" onclick="document.getElementById("users").innerHTML = findUsers()">Refresh users</button>
+    <button id = "request" onclick="findUsers()">Refresh users</button>
     <h2>Users:</h2>
     <p id = "users"></p>
 <button onclick="logout()">Log out</button>
@@ -32,11 +32,11 @@
     
     var findUsers = function(){
       webSocket.send("request");
-      var retrn;
+      var users;
       webSocket.onmessage = function(e) {
-        retrn = e.data;
+        users = e.data;
       };
-      return retrn;
+      document.getElementById("users").innerHTML = users;
     };
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
