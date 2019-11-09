@@ -23,7 +23,6 @@
     var webSocket = new WebSocket("ws://treeplate.damowmow.com:8000");
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
-    webSocket.send("user webpage:unnamed");
     var logout = function(){
       var x = document.getElementsByClassName("show");
       var i;
