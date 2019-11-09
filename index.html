@@ -36,7 +36,7 @@
       webSocket.onmessage = function(e) {
         users = e.data;
       };
-      document.getElementById("users").innerHTML = users;
+      document.getElementById("users").textContent = users;
     };
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
