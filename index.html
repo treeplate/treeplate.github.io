@@ -16,7 +16,7 @@
   </p>
   <div class="show bluebox black" hidden>
 <h1 id = "welcome"></h1>
-    <button id = "request">Refresh users</button>
+    <button id = "request" onclick="document.getElementById("users").innerHTML = findUsers()">Refresh users</button>
     <h2>Users:</h2>
     <p id = "users"></p>
 <button onclick="logout()">Log out</button>
@@ -29,6 +29,15 @@
         login(false);
       }
     }
+    
+    var findUsers = function(){
+      webSocket.send("request");
+      var retrn;
+      webSocket.onmessage = function(e) {
+        retrn = e.data;
+      };
+      return retrn;
+    };
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
     var logout = function(){
@@ -51,8 +60,8 @@
         password = document.getElementById("password").value;
         localStorage.setItem("password", password);
       }
+      document.getElementById("users").innerHTML = findUsers();
       webSocket.send("user webpage:" + username);
-      webSocket.send("request");
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
       var i;
