@@ -21,6 +21,7 @@
   </div>
   <script>
     var webSocket = new WebSocket("ws://treeplate.damowmow.com:8000");
+    webSocket.onopen = function(){
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
     var logout = function(){
@@ -59,6 +60,7 @@
     };
     if(username !== null && password !== null){
       login(false);
+    }
     }
   </script>
 </body>
