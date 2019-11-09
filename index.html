@@ -29,14 +29,14 @@
         login(false);
       }
     }
+    webSocket.onmessage = function(e){
+      if(e.data.startsWith("request:")
+        document.getElementById("users").textContent = e.data.substring(8);
+      }
+    };
     
     var findUsers = function(){
       webSocket.send("request");
-      var users;
-      webSocket.onmessage = function(e) {
-        users = e.data;
-      };
-      document.getElementById("users").textContent = users;
     };
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
