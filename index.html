@@ -38,11 +38,11 @@
     
     var login = function(resetLogin){
       if(resetLogin){
-        webSocket.send("user webpage:" + username);
         username = document.getElementById("username").value;
         localStorage.setItem("username", username);
         password = document.getElementById("password").value;
         localStorage.setItem("password", password);
+        webSocket.send("user webpage:" + username);
       }
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
