@@ -38,7 +38,7 @@
     
     var login = function(resetLogin){
       if(resetLogin){
-        webSocket.send("user " + username);
+        webSocket.send("user webpage:" + username);
         username = document.getElementById("username").value;
         localStorage.setItem("username", username);
         password = document.getElementById("password").value;
