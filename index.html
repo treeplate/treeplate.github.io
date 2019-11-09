@@ -16,6 +16,9 @@
   </p>
   <div class="show bluebox black" hidden>
 <h1 id = "welcome"></h1>
+    <button id = "request">Refresh users</button>
+    <h2>Users:</h2>
+    <p id = "users"></p>
 <button onclick="logout()">Log out</button>
     
   </div>
@@ -49,6 +52,7 @@
         localStorage.setItem("password", password);
       }
       webSocket.send("user webpage:" + username);
+      webSocket.send("request");
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
       var i;
