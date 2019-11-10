@@ -60,7 +60,6 @@
         password = document.getElementById("password").value;
         localStorage.setItem("password", password);
       }
-      document.getElementById("users").innerHTML = findUsers();
       webSocket.send("user webpage:" + username);
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
