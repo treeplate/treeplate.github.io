@@ -31,7 +31,7 @@
     }
     webSocket.onmessage = function(e){
       if(e.data.startsWith("request:")
-        document.getElementById("users").innerHTML = e.data.substring(8);
+        document.getElementById("users").innerHTML = e.data;//.substring(8);
       }
     };
     
