@@ -37,6 +37,9 @@
     webSocket.onerror = function(e){
       console.log(e);
     }
+    webSocket.onclose = function(e){
+      console.log(e);
+    }
     var findUsers = function(){
       webSocket.send("request");
     };
