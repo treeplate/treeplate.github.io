@@ -34,7 +34,9 @@
         document.getElementById("users").innerHTML = e.data.substring(8);
       }
     };
-    
+    webSocket.onerror = function(e){
+      console.log(e);
+    }
     var findUsers = function(){
       webSocket.send("request");
     };
