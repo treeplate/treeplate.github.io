@@ -31,7 +31,14 @@
     }
     webSocket.onmessage = function(e){
       if(e.data.startsWith("request:")){
-        document.getElementById("users").innerHTML = e.data.substring(8);
+        var names = e.data.substring(8).split(",");
+        for(var a = 0;a<names.length;a++){
+          if(names[a].startsWith("webpage:"){
+             names[a] = names[a].substring(8);
+          }
+        }
+        var users = names.join(",");
+        document.getElementById("users").innerHTML = users;
       }
     };
     webSocket.onerror = function(e){
