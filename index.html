@@ -33,7 +33,7 @@
       if(e.data.startsWith("request:")){
         var names = e.data.substring(8).split(",");
         for(var a = 0;a<names.length;a++){
-          if(names[a].startsWith("webpage:"){
+          if(names[a].startsWith("webpage:")){
              names[a] = names[a].substring(8);
           }
         }
