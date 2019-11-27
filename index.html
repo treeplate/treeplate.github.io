@@ -45,7 +45,7 @@
       if(e.data.startsWith("message:")){
         var para = document.createElement("p");
         var name = e.data.substring(8)
-        if(name.startsWith("webpage:"){
+        if(name.startsWith("webpage:")){
            name = e.data.substring(16)
         }
         var node = document.createTextNode(name);
