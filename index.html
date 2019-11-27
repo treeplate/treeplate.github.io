@@ -16,9 +16,11 @@
   </p>
   <div class="show bluebox black" hidden>
 <h1 id = "welcome"></h1>
-    <button id = "request" onclick="findUsers()">Refresh users</button>
+    <button onclick="findUsers()">Refresh users</button>
     <h2>Users:</h2>
     <p id = "users"></p>
+    <div id = "messages"></div>
+    <p><input type="text" id="message"><button onclick="sendMessage()">Send</button>
 <button onclick="logout()">Log out</button>
     
   </div>
@@ -40,6 +42,13 @@
         var users = names.join(",");
         document.getElementById("users").innerHTML = users;
       }
+      if(e.data.startsWith("message:")){
+        var para = document.createElement("p");
+        var node = document.createTextNode(e.data.substring(8));
+        para.appendChild(node);
+        var element = document.getElementById("messages");
+        element.appendChild(para);
+      }
     };
     webSocket.onerror = function(e){
       console.log(e);
@@ -49,6 +58,9 @@
     }
     var findUsers = function(){
       webSocket.send("request");
+    };
+    var sendMessage = function(){
+      webSocket.send(document.getElementById("message").value);
     };
     var username = localStorage.getItem("username");
     var password = localStorage.getItem("password");
