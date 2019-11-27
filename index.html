@@ -44,7 +44,11 @@
       }
       if(e.data.startsWith("message:")){
         var para = document.createElement("p");
-        var node = document.createTextNode(e.data.substring(8));
+        var name = e.data.substring(8)
+        if(name.startsWith("webpage:"){
+           name = e.data.substring(16)
+        }
+        var node = document.createTextNode(name);
         para.appendChild(node);
         var element = document.getElementById("messages");
         element.appendChild(para);
