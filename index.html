@@ -59,6 +59,18 @@
         var element = document.getElementById("messages");
         element.appendChild(para);
       }
+      if(e.data === 'invalid password'){
+          var x = document.getElementsByClassName("show");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].hidden = true;
+      }
+      var x = document.getElementsByClassName("hide");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].hidden = false;
+      }
+      }
     };
     webSocket.onerror = function(e){
       console.log(e);
@@ -94,7 +106,7 @@
         password = document.getElementById("password").value;
         localStorage.setItem("password", password);
       }
-      webSocket.send("user webpage:" + username);
+      webSocket.send("user webpage:" + username+" " + password);
       document.getElementById("welcome").innerHTML = "Hi "+username+" password "+password+"!";
       var x = document.getElementsByClassName("hide");
       var i;
